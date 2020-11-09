@@ -1,1 +1,1 @@
-# ClashRoyaleAPI
+# JokeAPI
