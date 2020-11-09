@@ -10,7 +10,12 @@
             function getClashRoyaleData() {
                 var request = new XMLHttpRequest();
                 request.open("GET", "https://api.clashroyale.com/v1/players/%23RPGR92P", true);
-                request.setRequestHeader("Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjRmZTcwODhkLWNiMmQtNDE4MC1iMjU1LTU0ZWMzZjZhMzJjMSIsImlhdCI6MTYwNDk1NjI4Mywic3ViIjoiZGV2ZWxvcGVyLzRmZjIxYzllLTUzYmQtZWUxNC03MjcyLWJjNjNlYWJhOGIzZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI3Mi43NC4xODYuMjUiLCIxOTIuMzAuMjUyLjE1MyIsIjE5Mi4zMC4yNTIuMTU0Il0sInR5cGUiOiJjbGllbnQifV19.dfvMWtV7pqj9EcaPIM4ZFqf6RDBjHYsNypCIcZWT5_AAeeLUYxiDkyrP-1m6EbDoPgYzm2FMjksOez_V4cgJlQ", true);
+                
+                request.setRequestHeader('Authorization', 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjRmZTcwODhkLWNiMmQtNDE4MC1iMjU1LTU0ZWMzZjZhMzJjMSIsImlhdCI6MTYwNDk1NjI4Mywic3ViIjoiZGV2ZWxvcGVyLzRmZjIxYzllLTUzYmQtZWUxNC03MjcyLWJjNjNlYWJhOGIzZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI3Mi43NC4xODYuMjUiLCIxOTIuMzAuMjUyLjE1MyIsIjE5Mi4zMC4yNTIuMTU0Il0sInR5cGUiOiJjbGllbnQifV19.dfvMWtV7pqj9EcaPIM4ZFqf6RDBjHYsNypCIcZWT5_AAeeLUYxiDkyrP-1m6EbDoPgYzm2FMjksOez_V4cgJlQ');
+
+                // request.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjRmZTcwODhkLWNiMmQtNDE4MC1iMjU1LTU0ZWMzZjZhMzJjMSIsImlhdCI6MTYwNDk1NjI4Mywic3ViIjoiZGV2ZWxvcGVyLzRmZjIxYzllLTUzYmQtZWUxNC03MjcyLWJjNjNlYWJhOGIzZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI3Mi43NC4xODYuMjUiLCIxOTIuMzAuMjUyLjE1MyIsIjE5Mi4zMC4yNTIuMTU0Il0sInR5cGUiOiJjbGllbnQifV19.dfvMWtV7pqj9EcaPIM4ZFqf6RDBjHYsNypCIcZWT5_AAeeLUYxiDkyrP-1m6EbDoPgYzm2FMjksOez_V4cgJlQ")
+
+                // request.setRequestHeader("Authorization: ", true);
 
                 // request.setRequestHeader("Accept", "application/json");
                 // request.setRequestHeader("Access-Control-Allow-Origin", "https://jameslai409.github.io");
@@ -20,9 +25,17 @@
                 request.onreadystatechange = function() {
                     //when request works
                     if (request.readyState == 4 && request.status == 200) {
-                        result = request.responseText;
-                        alert(result);
-                        playerData = JSON.parse(result);
+                        let response = request.responseText;
+                        // alert(result);
+                        
+                        // request.setRequestHeader("Accept", "application/json");
+                        // response.setHeader("Access-Control-Allow-Origin", "*");
+                // response.setHeader("Access-Control-Allow-Credentials", "true");
+                // response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+                // response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+    
+
+                        playerData = JSON.parse(response);
                         
                         document.getElementById("data").innerHTML =  "player clan name: " + playerData["clan"]["name"]; 
                         
