@@ -8,11 +8,16 @@
         <meta name=‘viewport’ content=“width=device-width, initial-scale=1”>
         <script>
             function getClashRoyaleData() {
-                request = new XMLHttpRequest();
-
-                request.open("GET", "https://api.clashroyale.com/v1/players/Laightning", true);
-                request.setRequestHeader('Authorization', 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBkYzczN2EyLTU3MjktNDYzNi05ZjFhLThkMDM1ZDZjOGVlYSIsImlhdCI6MTYwNDgxNTM2Nywic3ViIjoiZGV2ZWxvcGVyLzRmZjIxYzllLTUzYmQtZWUxNC03MjcyLWJjNjNlYWJhOGIzZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI3Mi43NC4xODYuMjUiXSwidHlwZSI6ImNsaWVudCJ9XX0.Td107mUVGsTm633gyEUENVJJVCUu4Qo3iFQO1M3xjnPkVRwWslJ4nH19Vs2GNUhRyfxGPuCGSRHFvDlchnzYJA");
-                request.setRequestHeader("Accept", "application/json");
+                var request = new XMLHttpRequest();
+                request.open("GET", "https://api.clashroyale.com/v1/players/%23RPGR92P", true);
+                
+                request.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBkYzczN2EyLTU3MjktNDYzNi05ZjFhLThkMDM1ZDZjOGVlYSIsImlhdCI6MTYwNDgxNTM2Nywic3ViIjoiZGV2ZWxvcGVyLzRmZjIxYzllLTUzYmQtZWUxNC03MjcyLWJjNjNlYWJhOGIzZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI3Mi43NC4xODYuMjUiXSwidHlwZSI6ImNsaWVudCJ9XX0.Td107mUVGsTm633gyEUENVJJVCUu4Qo3iFQO1M3xjnPkVRwWslJ4nH19Vs2GNUhRyfxGPuCGSRHFvDlchnzYJA");
+                // request.setRequestHeader("Accept", "application/json");
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+                // response.setHeader("Access-Control-Allow-Origin", "*");
+                // response.setHeader("Access-Control-Allow-Credentials", "true");
+                // response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+                // response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
     
                 request.onreadystatechange = function() {
                     //when request works
