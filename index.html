@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Joke API</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name=‘viewport’ content=“width=device-width, initial-scale=1”>
+        <script>
+            function getJokeData() {
+                var request = new XMLHttpRequest();
+                request.open("GET", "https://sv443.net/jokeapi/v2/joke/Any", true);
+            
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+                request.onreadystatechange = function() {
+                    //when request works
+                    if (request.readyState == 4 && request.status == 200) {
+                        let response = request.responseText;
+                        
+                        jokeData = JSON.parse(response);
+                        
+                        if (jokeData["type"] == "single") {
+                            document.getElementById("data").innerHTML =  jokeData["joke"]; 
+                        }
+                        else if (jokeData["type"] == "twopart") {
+                            document.getElementById("data").innerHTML =  "<strong>Setup: </strong>" + jokeData["setup"] + "<br /><br /><strong>Delivery: </strong>" + jokeData["delivery"]; 
+                        }
+                        else {
+                            document.getElementById("data").innerHTML = "Sorry, you recieved a joke in weird format. Refresh!";
+                        }
+                    }
+                    else if (request.readyState == 4 && request.status != 200) {
+                        document.getElementById("data").innerHTML = "A mistake happened somewhere. Check console logs please.";
+                    }
+                    else if (request.readyState == 3) {
+                        document.getElementById("data").innerHTML = "Too soon!  Try again";
+                    }
+                }
+                request.send();
+            }
+        </script>
+    </head>
+
+
+    <body onload="getJokeData()">
+
+        <h1>Jokes!</h1>
+        <div id="data">Loading...</div>
+    </body>
+</html>
