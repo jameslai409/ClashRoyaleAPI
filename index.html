@@ -9,7 +9,7 @@
         <script>
             function getJokeData() {
                 var request = new XMLHttpRequest();
-                request.open("GET", "https://sv443.net/jokeapi/v2/joke/Any", true);
+                request.open("GET", "https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,racist,sexist", true);
             
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
 
@@ -47,5 +47,16 @@
 
         <h1>Jokes!</h1>
         <div id="data">Loading...</div>
+
+        <div id="extraInfo">
+            <p>
+                <h2>More Info</h2>
+                I am using a Joke API, it only returns random jokes on each API call. I found this API on https://sv443.net/jokeapi/v2/
+                <br />
+                The API call that I'm making is "Any", which includes both single and two part jokes. It is randomized every time, so I have to extract the information from the JSON file differently depending on what type of joke it is. I am also excluding the nsfw, racist, and sexist jokes.
+                <br />
+                This API could be helpful if someone wants new daily jokes that randomizes everytime so they don't see the same one every time, and the API options can also be filtered to provide jokes for many different audiences of different ages.
+            </p>
+        </div>
     </body>
 </html>
